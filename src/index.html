@@ -1,0 +1,129 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script> -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+    integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+    crossorigin=""/>
+ 
+  <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+    integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+    crossorigin=""></script>
+    <script src="map.js"></script>
+    <script src="states.js"></script>
+</head>
+
+
+<body>
+
+    <h1 id="heading">Less Go Solar</h1>
+    <div class="contents">
+        <div class="input-group mb-3" id="cost">
+            <span class="input-group-text" id="label">
+                <b>Electricity Cost:</b>
+            </span>
+            <!-- <span class="input-group-text">$</span> -->
+            <input type="text" min="0" max="100" step="any" class="form-control" maxlength="4" size="4" id="electric">
+            <span class="input-group-text">.00</span> 
+            <span class="input-group-text">USD per KWh</span> 
+            <div>
+            </div>
+        </div>
+        <div class="input-group mb-3" id="bill">
+            <span class="input-group-text" id="label">
+                <b>Avg. Monthly Electricity Bill:</b>
+            </span>
+            <!-- <span class="input-group-text">$</span> -->
+            <input type="text" min="0" max="100" step="any" class="form-control" maxlength="4" size="4" id="electric">
+            <span class="input-group-text">.00</span> 
+            <span class="input-group-text">USD per KWh</span> 
+            <div>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="label">
+                <b>Area Of Each Solar Panel:</b>
+            </span>
+            <!-- <span class="input-group-text">$</span> -->
+            <input type="text" min="0" max="100" step="any" class="form-control" maxlength="19" id="totalarea">
+            <!-- <select class="form-select" aria-label="Default select example" id="area">
+                <option value="USD" selected="selected">Square meter</option>
+                <option value="ZMK">Square kilometer</option>
+                <option value="ZMK">Square mile</option>
+                <option value="ZMK">Square foot</option>
+                <option value="ZMK">Square inch</option>
+                <option value="ZMK">Hecatre</option>
+                <option value="ZMK">Acre</option>
+            </select> -->
+            <span class="input-group-text">per Square meter</span> 
+        </div>
+        <div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="label">
+                    <b>Efficiency Of The Solar Panel:</b>
+                </span>
+                <!-- <span class="input-group-text">$</span> -->
+                <input type="text" min="0" max="100" step="any" class="form-control" maxlength="3" size="4">
+                <span class="input-group-text">%</span> 
+            </div>
+        </div>
+        <div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="label">
+                    <b>Number Of Solar Panels:</b>
+                </span>
+                <!-- <span class="input-group-text">$</span> -->
+                <input type="text" min="0" max="100" step="any" class="form-control" maxlength="3" size="4">
+                <span class="input-group-text">units</span> 
+            </div>
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="label">
+                <b>Cost Of The Solar Panel:</b>
+            </span>
+            <!-- <span class="input-group-text">$</span> -->
+            <input type="text" min="0" max="100" step="any" class="form-control" maxlength="3" size="4">
+            <span class="input-group-text">.00 USD</span> 
+        </div>
+
+        <span class="input-group-text" id="range"><b>Time: 15 Years</b>
+            <input type="range" class="form-range" id="customRange1" min="1" max="30" step="1" value="15">
+        </span>
+
+        <div class="output">
+            <span class="input-group-text"><b>Efficiency:</b></span> 
+            <h1 id="efficiency">
+                <b>US $3762.28</b>
+            </h1>
+            <h6>(Annual Savings)</h6>
+            <hr>
+            <h1 id="efficiency">
+                <b>26.7 Metric Tons</b>
+            </h1>
+            <h6>(Carbon emmissions reduced)</h6>
+            <hr>
+            <h1 id="efficiency">
+                <b>37,662.28 KWh</b>
+            </h1>
+            <h6>(Energy Generated in 15 Years)</h6>
+            <hr>
+            <h1 id="efficiency">
+                <b>29.4K Pounds</b>
+            </h1>
+            <h6>(Coal saved)</h6>
+            <hr>
+            <h1 id="efficiency">
+                <b>US $56,434.20</b>
+            </h1>
+            <h6>(Electricity Cost Savings of 15 Years)</h6>
+        </div>
+        <div id="map"></div>
+    </div>
+</body>
+</html>
